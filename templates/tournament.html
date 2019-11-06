@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for name in names %}
+  <p2> {{ name }} </p2>
+
+    {{ value|linebreaks }}
+{% endfor %}
+
+{% endblock %}

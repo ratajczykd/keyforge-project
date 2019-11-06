@@ -4,9 +4,19 @@
   <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Submit">
+      <input type="submit" value="Dodaj">
   </form>
 
-  {{ name }}
+  <form action='remove_players' method='GET'>
+    <button type='submit'>Usuń wszystkich graczy</button>
+  </form>
+
+  <a href="{% url 'tournament' %}">Losuj pary</a>
+
+  {% for name in names %}
+    <p2> {{ name }} </p2>
+
+      {{ value|linebreaks }}
+  {% endfor %}
 
 {% endblock %}

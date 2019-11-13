@@ -9,10 +9,10 @@ def index(request):
     return render(request, 'index.html')
 
 def players(request):
-    names = Player.objects.all()
+    players = Player.objects.all()
     args = []
-    for name in names:
-        args.append(name.name)
+    for player in players:
+        args.append(player.name)
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = NameForm(request.POST)
@@ -34,9 +34,17 @@ def remove_players(request):
     return HttpResponseRedirect('/players/')
 
 def tournament(request):
-    names = Player.objects.all()
-    random.shuffle(names)
-    return render(request, 'tournament.html', {'names':names})
+    players = Player.objects.all()
+    for i, player in enumerate(players):
+        player.player_no = i
+    pairs = []
+    list_of_players = [i for i in range(1,len(players))]
+    for i in range(1,len(players)):
+        list_of_players.remove(i)
+        pairs[0] = [i, random.choice(list_of_players)]
+
+
+    return render(request, 'tournament.html', {'players':players})
 
 def info(request):
     return render(request, 'info.html')

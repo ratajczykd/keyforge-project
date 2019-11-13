@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 
-{% for name in names %}
-  <p2> {{ name }} </p2>
-
-    {{ value|linebreaks }}
+{% for player in players %}
+  <p2> {{ player.name }} </p2>
+  <p2> {{ player.player_no }} </p2>
+      {{ value|linebreaks }}
 {% endfor %}
 
 {% endblock %}

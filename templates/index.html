@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
+<div>
   <ul>
     <li>
       <a href="{% url 'players' %}">Rozpocznij turniej</a>
@@ -9,4 +12,5 @@
       <a href="{% url 'info' %}">O stronie</a>
     </li>
   </ul>
+</div>
 {% endblock %}
